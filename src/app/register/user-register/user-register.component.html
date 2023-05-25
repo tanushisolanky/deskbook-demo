@@ -23,15 +23,15 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="text" class="form-control" formControlName="firstName" required minlength="2"
-                        maxlength="100" placeholder="." appCapitalize>
+                        maxlength="100" placeholder=" " appCapitalize>
                     <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg">First Name</label>
                     <span class="icon bi bi-person-fill"></span>
                 </div>
                 <div *ngIf="((submitted && f['firstName'].errors) || (f['firstName'].touched))"
                     class="invalid-feedback d-block">
                     <div *ngIf="f['firstName'].errors?.['required']">This field is Required</div>
-                    <div *ngIf="f['firstName'].errors?.['minlength']">First name must be between 2-100 characters</div>
-                    <div *ngIf="f['firstName'].errors?.['maxlength']">First name must be between 2-100 characters</div>
+                    <div *ngIf="f['firstName'].errors?.['minlength'] || f['firstName'].errors?.['maxlength']">First name
+                        must be between 2-100 characters</div>
                     <div *ngIf="f['firstName'].errors?.['pattern']">Please enter a valid First Name</div>
                 </div>
             </div>
@@ -40,15 +40,15 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="text" class="form-control" formControlName="lastName" required minlength="2"
-                        maxlength="100" placeholder="Last Name" appCapitalize>
+                        maxlength="100" placeholder=" " appCapitalize>
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Last Name</label>
                     <span class="icon bi bi-person-fill"></span>
                 </div>
                 <div *ngIf="((submitted && f['lastName'].errors) || (f['lastName'].touched))"
                     class="invalid-feedback d-block">
                     <div *ngIf="f['lastName'].errors?.['required']">This field is Required</div>
-                    <div *ngIf="f['lastName'].errors?.['minlength']">Last name must be between 2-100 characters</div>
-                    <div *ngIf="f['lastName'].errors?.['maxlength']">Last name must be between 2-100 characters</div>
+                    <div *ngIf="f['lastName'].errors?.['minlength'] || f['lastName'].errors?.['maxlength']">Last name
+                        must be between 2-100 characters</div>
                     <div *ngIf="f['lastName'].errors?.['pattern']">Please enter a valid Last Name</div>
                 </div>
             </div>
@@ -56,17 +56,23 @@
             <!-- Email :start -->
             <div class="mb-3">
                 <div class="form-floating">
-                    <input type="email" class="form-control" formControlName="email" required placeholder="Email">
+                    <input type="email" class="form-control" formControlName="email" required placeholder=" ">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Email</label>
                     <span class="icon icon-sm bi bi-envelope-fill"></span>
                 </div>
                 <div *ngIf="((submitted && f['email'].errors) || (f['email'].touched))"
                     class="invalid-feedback d-block">
                     <div *ngIf="f['email'].errors?.['required']">This field is Required</div>
-                    <div *ngIf="f['email'].errors?.['pattern']; else invalidError">Email ID must be between 3-80 characters</div>
+
+                    <div
+                        *ngIf="(f['email'].errors?.['minlength'] || f['email'].errors?.['maxlength']); else invalidError">
+                        Email ID must be between 3-80 characters</div>
                     <ng-template #invalidError>
-                        <div *ngIf="f['email'].errors?.['email']">Email is invalid</div>
+                        <div *ngIf="f['email'].errors?.['pattern']">Please enter valid Email Id</div>
                     </ng-template>
+
+
+
                 </div>
             </div>
             <!-- Email :End -->
@@ -74,7 +80,7 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="Password" class="form-control" formControlName="password" required minlength="8"
-                        maxlength="25" placeholder="Password" [attr.type]="password ? 'text':'password'">
+                        maxlength="25" placeholder=" " [attr.type]="password ? 'text':'password'">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Password</label>
                     <span class="icon bi bi-key-fill"></span>
                     <span (click)="togglePasswordText()" *ngIf="!password"
@@ -84,10 +90,15 @@
                 <div *ngIf="((submitted && f['password'].errors) || (f['password'].touched))"
                     class="invalid-feedback d-block">
                     <div *ngIf="f['password'].errors?.['required']">This field is Required</div>
-                    <div *ngIf="f['password'].errors?.['minlength']">Password must be between 8-25 characters</div>
-                    <div *ngIf="f['password'].errors?.['maxlength']">Password must be between 8-25 characters</div>
-                    <div *ngIf="f['password'].errors?.['pattern']">At least 1 uppercase alphabet, 1 Special Character
-                        and 1 numeric value required</div>
+                    <div *ngIf="f['password'].errors?.['pattern'];else invalidError">At least 1 uppercase alphabet, 1 lowercase
+                        alphabet,
+                        1 Special Character (@$! _& #) and 1 numeric value required</div>
+                    <ng-template #invalidError>
+                        <div
+                        *ngIf="(f['password'].errors?.['minlength'] || f['password'].errors?.['maxlength'])">
+                        Password must be between 8-25 characters</div>
+
+                    </ng-template>
                 </div>
             </div>
 
@@ -96,7 +107,7 @@
             <div class="mb-3">
                 <div class="form-floating">
                     <input type="Password" class="form-control" formControlName="confirmPassword" required
-                        placeholder="Confirm Password" [attr.type]="confirmPassword ? 'text':'password'">
+                        placeholder=" " [attr.type]="confirmPassword ? 'text':'password'">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Confirm Password</label>
                     <span class="icon bi bi-key-fill"></span>
                     <span (click)="toggleConfirmPasswordText()" *ngIf="!confirmPassword"

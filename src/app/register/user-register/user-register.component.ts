@@ -19,10 +19,11 @@ export class UserRegisterComponent {
   submitted = false;
   isChecked: boolean = false;
   password!: boolean;
+  allReadyRegistered!: boolean;
   confirmPassword!: boolean;
   namePattern = "^[A-Za-z]+('[A-Za-z]+)?$";
-  emailPattern1 = '^[a-zA-Z0-9._%+-]{3,80}@[a-zA-Z0-9]+.[a-zA-Z]+$';
-  passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@!#$%^&*/().,':;+=~? ]).+$";
+  emailPattern1 = "^[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]{2,3})+$";
+  passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!_&#]).+$";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,6 +58,8 @@ export class UserRegisterComponent {
           [
             Validators.required,
             Validators.email,
+            Validators.minLength(3),
+            Validators.maxLength(80),
             Validators.pattern(this.emailPattern1),
           ],
         ],
@@ -80,8 +83,6 @@ export class UserRegisterComponent {
   }
 
   get f(): { [key: string]: AbstractControl } {
-    console.log(this.form.controls);
-
     return this.form.controls;
   }
   // onclick icon show password and change the icon
@@ -100,8 +101,19 @@ export class UserRegisterComponent {
     if (this.form.invalid) {
       return;
     }
+  
     this.userService.postData(this.form.value).subscribe((res: any) => {
+      // if(res.st === 401 ){
+      //   this.allReadyRegistered=true;
+      //   return
+      // }
+      // else if (res === 200) {
+      //   // redirect
+      //   // this.
+      // }
       console.log(res);
-    });
+      
+    }
+    );
   }
 }

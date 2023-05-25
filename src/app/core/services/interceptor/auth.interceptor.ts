@@ -52,6 +52,8 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError((errorResponse: HttpErrorResponse) => {
+          console.log(errorResponse);
+          
           let message: string = '';
           message = Messages.MessageForCommonError;
           this.messageTitle = MessageTitles.Error;

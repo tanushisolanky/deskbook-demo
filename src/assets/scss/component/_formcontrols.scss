@@ -9,6 +9,7 @@
         width: fit-content;
         height: fit-content;
         transition: all 0.2s ease-out;
+        color: $secondary-grey ;
     }
 
     .form-control {
@@ -34,7 +35,11 @@
 .form-floating:focus-within {
     border-color: $danger;
 }
-
+.form-floating{
+    &.ng-touched{
+        border-color: $danger;
+    }
+}
 // invalid-message
 .invalid-feadback {
     font-size: 14px;

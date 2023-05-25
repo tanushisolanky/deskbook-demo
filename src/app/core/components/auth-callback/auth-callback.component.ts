@@ -10,7 +10,7 @@ export class AuthCallbackComponent implements OnInit {
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
-    debugger
+    
     this._authService.completeAuthentication();
   }
 

@@ -20,7 +20,7 @@ export class AuthService {
   constructor(private _router: Router) {
     this.userLoaded = false;
     this.currentUserData = new BehaviorSubject<ProfileStandardClaims>({});
-    debugger
+    
     const settings: UserManagerSettings = {
       authority: environment.authority,
       client_id: environment.client_id,
@@ -73,7 +73,7 @@ export class AuthService {
 
   /** Set user token if successfully authenticated in auth callback component */
   public completeAuthentication(): Promise<void> {
-    debugger
+    
     return this.userManager.signinRedirectCallback()
       .then((user: User) => {
         this.currentUser = user;

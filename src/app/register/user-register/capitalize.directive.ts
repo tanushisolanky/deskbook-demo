@@ -15,7 +15,7 @@ export class CapitalizeDirective {
 
   capitalizeFirstLetter(value: string): string {
     if (value.length > 0) {
-      return value.charAt(0).toUpperCase() + value.slice(1);
+      return value.charAt(0).toUpperCase() + value.slice(1).toLocaleLowerCase();
     }
     return value;
   }

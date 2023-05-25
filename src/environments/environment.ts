@@ -18,7 +18,7 @@ grant_type: 'implicit',
 policy_url: 'http://103.249.120.58:8503/api/userPolicy/',
 policy_name: 'PMCPolicy',
 apiUrl: 'http://103.249.120.58:8508/api/',
-authority_register_uri: 'https://deskbook-admin-service-dev.1rivet.com:9445/api/',
+authority_register_uri: 'https://feb-deskbook-admin-service-dev.1rivet.com:9500/api',
 acr_values: 'tenant:92E838C3-EC40-486F-B126-BBEC78E7D99B',
 userprofile_uri :"https://dev-deskbook-userapi.1rivet.com:9443/api/deskbook/"
 };
