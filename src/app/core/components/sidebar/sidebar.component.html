@@ -1,0 +1,32 @@
+<input type="checkbox" class="d-none" id="sidebar" checked>
+<!--Start: sidebar-->
+<aside class="side-nav overflow-hidden d-flex d-sm-none flex-column" id="side-nav">
+    <!--Start: sidebar header-->
+    <div class="aside-header d-flex align-items-center justify-content-between">
+        <div class="d-inline-block d-sm-none">
+            <img src="assets/images/logo.png" class="header-logo" alt="#">
+        </div>
+        <label for="sidebar" class="toggle-menu m-0 p-0 ml-auto">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </label>
+    </div>
+    <!--End: sidebar header-->
+    <!--Start: sidebar body-->
+    <div class="aside-body d-flex flex-column flex-grow-1 overflow-y-auto">
+        <ul class="sidebar-nav d-flex flex-column p-0 h-100">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="mentor" routerLinkActive="router-link-active">Mentors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Interns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Leaves</a>
+            </li>
+        </ul>
+    </div>
+    <!--End: sidebar body-->
+</aside>
+<!--End: sidebar-->

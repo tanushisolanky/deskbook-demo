@@ -1,0 +1,25 @@
+// landing page nav-bar\
+body {
+    font-family: 'Inter';
+}
+
+.dblogo {
+    object-fit: cover;
+
+    img {
+        height: 40px;
+        width: 54px;
+    }
+}
+
+.brand-title {
+    font-weight: 700;
+}
+
+.navbar-nav {
+    a {
+        text-decoration: none;
+    }
+}
+
+// End: landing page nav-bar\

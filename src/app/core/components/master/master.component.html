@@ -1,0 +1,18 @@
+<!-- Content Wrapper -->
+<div class="wrapper d-flex h-100">
+    <!--Start: Sidebar-->
+    <sidebar-ui></sidebar-ui>
+    <!--End: Sidebar-->
+    <div class="flex-grow-1 overflow-hidden">
+        <div class="content-wrapper d-flex flex-column h-100 overflow-hidden">
+            <!--Start: header -->
+            <header-ui [userData]="loggedInUserData"></header-ui>
+            <!--End: header -->
+            <!--Start: Main Section -->
+            <div class="main-div flex-grow-1 overflow-auto">
+                <router-outlet></router-outlet>
+            </div>
+            <!--End: Main Section -->
+        </div>
+    </div>
+</div>

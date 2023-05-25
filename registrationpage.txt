@@ -1,0 +1,104 @@
+<!-- registration page -->
+<div class="main-container">
+    <!-- form-wrapper -->
+    <div class="registration-wrapper d-flex flex-column justify-content-center align-item-center m-auto">
+        <!-- brand :start-->
+        <div class="brand-wrapper text-center">
+
+            <!-- brand-image : start -->
+            <figure>
+                <img src="../assets/images/db-icon.png" alt="logo" />
+            </figure>
+            <!-- brand-image : end -->
+
+            <!-- brand-title : start -->
+            <h6 class="brand-title mt-3">DeskBook</h6>
+            <!-- brand-title : end -->
+        </div>
+        <!-- brand :end-->
+        <!-- form : start-->
+        <form autocomplete="off">
+
+            <!-- First Name :start -->
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control p-0" id="floatingInput" placeholder="First Name" />
+                <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg" >First Name</label>
+                <span  class="icon bi bi-person-fill"></span>
+            </div>
+            <!-- First Name :End -->
+            <!-- Last Name :start -->
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control p-0" id="floatingInput" placeholder="Last Name" />
+                <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg" >Last Name</label>
+                <span  class="icon bi bi-person-fill"></span>
+            </div>
+            <!-- Last Name :End -->
+             <!-- Email :start -->
+             <div class="form-floating mb-3">
+                <input type="email" class="form-control p-0" id="floatingInput" placeholder="Email" />
+                <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg" >Email</label>
+                <span  class="icon icon-sm bi bi-envelope-fill"></span>
+            </div>
+            <!-- Email :End -->
+             <!-- Password :start -->
+             <div class="form-floating mb-3">
+                <input type="Password" class="form-control p-0" id="floatingInput" placeholder="Password" />
+                <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg" >Password</label>
+                <span  class="icon bi bi-key-fill"></span>
+                <span class=" eye-icon bi bi-eye-slash-fill"></span>
+            </div>
+            <!-- Password :end -->
+            <!--Confirm Password :start -->
+            <div class="form-floating mb-3">
+                <input type="Password" class="form-control p-0" id="floatingInput" placeholder="Confirm Password" />
+                <label for="floatingInput" class="label px-1 py-0 badge text-bg-input-bg" >Confirm Password</label>
+                <span  class="icon bi bi-key-fill"></span>
+                <span class=" eye-icon bi bi-eye-slash-fill"></span>
+            </div>
+            <!-- Confirm Password :End -->
+            <!-- button wrapper : start -->
+            <div class="btn-wrapper d-flex flex-column gap-3 flex-sm-row justify-content-between">
+                <button type="button" class="btn btn-outline">Back to Sign In</button>
+                <button type="button" class="btn btn-bg">Register</button>
+            </div>
+            <!-- button wrapper : End -->
+        </form>
+        <!-- form :end-->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Landing Page -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid ">
+        <div class="brand-container d-flex ">
+            <figure class="dblogo">
+                <img src="../assets/images/db-icon.png" alt="dblogo">
+            </figure>
+            <h5 class="brand-title d-flex align-items-end ms-2 mb-1">DeskBook</h5>
+        </div>
+        <div class="navbar-nav d-flex align-items-center">
+            <a class="nav-link active" aria-current="page" href="#">Book Seat</a>
+            <a class="nav-link active" href="#">Booking History</a>
+            <a class="nav-link active" href="#">Request History</a>
+        </div>
+    </div>
+</nav>
+<!-- End: Landing Page -->
