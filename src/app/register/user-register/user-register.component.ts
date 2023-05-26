@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { Validation } from '../validators/validation';
 import { PostdataService } from '../service/postdata.service';
+import { LoaderService } from 'src/app/core/services/loader/loader.service';
 
 @Component({
   selector: 'app-user-register',
@@ -22,16 +23,17 @@ export class UserRegisterComponent {
   allReadyRegistered!: boolean;
   confirmPassword!: boolean;
   namePattern = "^[A-Za-z]+('[A-Za-z]+)?$";
-  emailPattern1 = "^[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*@{1,1}[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]{2,3})+$";
+  emailPattern1 = "^[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*@{1,1}[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*.{2,3}(\.[a-zA-Z0-9]{2,3})+$";
   passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!_&#]).+$";
 
   constructor(
     private formBuilder: FormBuilder,
-    // private apiService : ApiService,
     private route: Router,
     private userService: PostdataService,
+    private loaderService: LoaderService
   
   ) {
+    // this.loaderService.showLoader(true);
     this.allReadyRegistered = false;
     this.form = this.formBuilder.group(
       {
@@ -105,11 +107,10 @@ export class UserRegisterComponent {
     if (this.form.invalid) {
       return;
     }
-  
+  this.loaderService.showLoader(true);
     this.userService.postData(this.form.value).subscribe((res: any) => {
-
-      console.log(res);
-      
+      this.loaderService.showLoader(false);
+      this.route.navigate(['/']);
     },
     
     (error) => {

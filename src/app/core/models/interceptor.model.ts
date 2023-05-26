@@ -38,4 +38,6 @@ export enum Messages {
   MessageForUnauthorized = "You don't have permission to access the data for this page.",
   /** provide message if token is expired */
   MessageForUnauthorizedToken = 'Session Expired. Please login again.',
+  // provide  message if there is internal server error
+  MessageForInternalServerError = "Internal Server Error"
 }

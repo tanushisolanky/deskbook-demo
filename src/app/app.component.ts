@@ -10,15 +10,24 @@ import { PostdataService } from './register/service/postdata.service';
 export class AppComponent {
   title = 'desk-book';
   result : any;
-  constructor(private _postdataService : LoaderService){
-
+  loader: boolean;
+  constructor(  
+    private loaderService: LoaderService){
+    this.loader = false;
+   
   }
 
   ngOnInit(): void {
-    this._postdataService.loader.subscribe(res => {
-      this.result = res;
-      console.log(this.result);
+    // this._postdataService.loader.subscribe(res => {
+    //   this.result = res;
+    //   console.log(this.result);
       
-    })
+    // })
+    this.loaderService.status.subscribe((res) => {
+      console.log('res : ' , res);
+      
+      
+      this.loader = res;
+    });
 }
 }

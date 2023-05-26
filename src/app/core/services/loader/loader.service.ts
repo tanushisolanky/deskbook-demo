@@ -6,6 +6,18 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class LoaderService {
 
-  constructor() { }
-  loader = new BehaviorSubject<boolean>(true);
+  // constructor() { }
+  // loader = new BehaviorSubject<boolean>(false);
+  /** status  */
+  public status: BehaviorSubject<boolean>;
+ 
+  constructor() {
+    this.status = new BehaviorSubject<boolean>(false);
+  }
+
+  /** showLoader */
+  public showLoader(value: boolean): void {
+    this.status.next(value);
+  }
+
 }

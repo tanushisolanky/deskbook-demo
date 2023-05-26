@@ -2,13 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user-register.model';
-import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PostdataService {
-private url:string = environment.authority_register_uri;
+private url:string = environment.apiUrl;
   constructor(private _http :HttpClient) { 
 
   }

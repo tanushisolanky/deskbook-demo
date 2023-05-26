@@ -4,3 +4,4 @@ export interface User {
     "email": "string",
     "password": "string"
 }
+export const EmailExistError = 'Email Id Already Exists';

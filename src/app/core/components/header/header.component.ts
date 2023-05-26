@@ -3,7 +3,7 @@ import { ProfileStandardClaims } from 'oidc-client';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'header-ui',
+  selector: 'app-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {

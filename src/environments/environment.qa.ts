@@ -9,7 +9,7 @@ export const environment = {
     scope: 'openid profile UserProfile 1AuthorityApi 1RPPPolicyServerApi DeskBookApi',
     response_type: 'id_token token',
     authority: 'https://1authority-interns.1rivet.com:5004/',
-    redirect_uri: 'http://localhost:4200/',
+    redirect_uri: 'feb-deskbook-qa.1rivet.com:9503/',
     secret: 'secret1',
     grant_type: 'implicit',
     // Policy server config

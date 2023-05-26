@@ -13,22 +13,22 @@ $input-bg: #FFFFFF;
 // border
 $border-color: #E5E7EA;
 
-// badges
-$reserved-bg : rgba(234,66,52,0.1);
-$available-bg: rgba(88,166,95,0.1);
-$booked-bg: rgba(40,128,252,0.1);
+// // badges
+// $reserved-bg : rgba(234,66,52,0.1);
+// $available-bg: rgba(88,166,95,0.1);
+// $booked-bg: rgba(40,128,252,0.1);
 
-// popover keys
-$keys: rgba(3, 24,55,0.5);
+// // popover keys
+// $keys: rgba(3, 24,55,0.5);
 
-// profile
-$profile-input-border: #E5E7EA; //days bg
-$save-btn-bg : #CACACA;
-$save-btn-text : #7D7D7D;
-$icon-bg: rgba(77,141,237,0.08);
+// // profile
+// $profile-input-border: #E5E7EA; //days bg
+// $save-btn-bg : #CACACA;
+// $save-btn-text : #7D7D7D;
+// $icon-bg: rgba(77,141,237,0.08);
 
-// filter dropdown
-$hover : rgba(40,128,252,0.5);
+// // filter dropdown
+// $hover : rgba(40,128,252,0.5);
 
 
 // Form Control
@@ -48,3 +48,12 @@ $input-padding-x: 25px;
 $input-border-color: $border-color; //registartion input
 $input-color: $input-bg;
 // End: registration page
+
+
+// / landing page navbar
+$btn-text-color: $input-bg;
+$nav-bg: $border-color;
+$landing-page-body: $input-bg;
+$--bs-btn-active-bg:$danger;
+
+// End: landing page navbar

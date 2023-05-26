@@ -8,8 +8,7 @@ import {
   HttpRequest,
   HttpResponse,
   HttpSentEvent,
-  HttpUserEvent,
-  HttpEventType
+  HttpUserEvent
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -28,6 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private message!: string;
   /** the message Title for toaster. */
   private messageTitle!: string;
+  toaster: any;
   constructor(
     // private toaster: ToastrService,
     private authService: AuthService,
@@ -84,24 +84,17 @@ export class AuthInterceptor implements HttpInterceptor {
               message = Messages.MessageForUnauthorized;
               break;
             case 500:
-              message = Messages.MessageForUnauthorized;
+              message = Messages.MessageForInternalServerError;
               break;
             default:
               message = errorResponse.error ? errorResponse.error.message : '';
               break;
           }
         }
-        // this.toaster.error(message, this.messageTitle);
+        this.toaster.error(message, this.messageTitle);
         return throwError(message);
       }),
-      tap(event => {    
-        this._ls.loader.next(true);
-        if(event.type == HttpEventType.Response){
-            if (event.status == 200){
-                this._ls.loader.next(false);
-            }
-        }
-    }),
+  
       finalize(() => {
         console.log('Loader called here');
       })

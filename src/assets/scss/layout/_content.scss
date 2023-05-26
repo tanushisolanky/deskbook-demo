@@ -27,3 +27,39 @@
     padding: 32px 0px;
     overflow: auto;
 }
+
+
+
+// landing page
+.landing-page-wrapper{
+    background-color: $landing-page-body;
+    .landing-page-content{
+        max-width: 432px;
+        height: fit-content;
+        font-size: $font-size-16;
+    }
+    figure{
+        margin: 110px 0 80px 0;
+        object-fit: cover;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    span{
+        color: $gray;
+        text-align: center;
+    }
+}
+.landing-page-wrapper{
+    .button{
+        background-color: $primary;
+        color: $btn-text-color;
+        font-weight: 600;
+        border-radius: $border-radius-4;
+        border: none;
+        padding: 10px 80px;
+        margin-top: 20px;
+    }
+}
+// End: landing page
