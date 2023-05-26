@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user-register.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,6 @@ private url:string = environment.authority_register_uri;
       emailId:data.email,
       password:data.password
     }
-    console.log(body.emailId);
-    
     return this._http.post(`${this.url}/users`,body);
   }
 

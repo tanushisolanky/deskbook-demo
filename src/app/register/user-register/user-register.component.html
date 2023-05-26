@@ -56,7 +56,7 @@
             <!-- Email :start -->
             <div class="mb-3">
                 <div class="form-floating">
-                    <input type="email" class="form-control" formControlName="email" required placeholder=" ">
+                    <input type="email" (input)="removeallReadyRegistered()" class="form-control" formControlName="email" required placeholder=" ">
                     <label for="floatingInput" class="label px-1 py-0  badge text-bg-input-bg">Email</label>
                     <span class="icon icon-sm bi bi-envelope-fill"></span>
                 </div>
@@ -70,8 +70,7 @@
                     <ng-template #invalidError>
                         <div *ngIf="f['email'].errors?.['pattern']">Please enter valid Email Id</div>
                     </ng-template>
-
-
+                    <div *ngIf="allReadyRegistered">Email Id Already Exists</div>
 
                 </div>
             </div>

@@ -22,15 +22,17 @@ export class UserRegisterComponent {
   allReadyRegistered!: boolean;
   confirmPassword!: boolean;
   namePattern = "^[A-Za-z]+('[A-Za-z]+)?$";
-  emailPattern1 = "^[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]{2,3})+$";
+  emailPattern1 = "^[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*@{1,1}[a-zA-Z0-9]+([\.]?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]{2,3})+$";
   passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!_&#]).+$";
 
   constructor(
     private formBuilder: FormBuilder,
     // private apiService : ApiService,
     private route: Router,
-    private userService: PostdataService
+    private userService: PostdataService,
+  
   ) {
+    this.allReadyRegistered = false;
     this.form = this.formBuilder.group(
       {
         firstName: [
@@ -94,7 +96,9 @@ export class UserRegisterComponent {
     this.isChecked = !this.isChecked;
     this.confirmPassword = this.isChecked;
   }
-
+  removeallReadyRegistered(){
+    this.allReadyRegistered =false;
+  }
   onSubmit(): void {
     this.submitted = true;
 
@@ -103,16 +107,17 @@ export class UserRegisterComponent {
     }
   
     this.userService.postData(this.form.value).subscribe((res: any) => {
-      // if(res.st === 401 ){
-      //   this.allReadyRegistered=true;
-      //   return
-      // }
-      // else if (res === 200) {
-      //   // redirect
-      //   // this.
-      // }
+
       console.log(res);
       
+    },
+    
+    (error) => {
+      // Handle error
+      if(error === 'Email Id Already Exists'){
+       this.allReadyRegistered =true;
+       return;
+      }
     }
     );
   }

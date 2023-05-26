@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
-import { AuthInterceptor } from '../services/interceptor/auth.interceptor';
+import { AuthInterceptor } from '../services/interceptor/auth/auth.interceptor';
 
 /**
  * Interceptor model
@@ -25,7 +25,7 @@ export enum MessageTitles {
   /** provides warning title for warning toaster */
   Warning = 'Warning!',
   /** provides InvalidAccess title for InvalidAccess toaster */
-  InvalidAccess = 'Invalid Access'
+  InvalidAccess = 'Invalid Access',
 }
 
 /**
@@ -35,8 +35,7 @@ export enum Messages {
   /** provide all server comman error message */
   MessageForCommonError = 'Facing issues. Please try again later.',
   /** provide unauthorized error message */
-  MessageForUnauthorized = 'You don\'t have permission to access the data for this page.',
+  MessageForUnauthorized = "You don't have permission to access the data for this page.",
   /** provide message if token is expired */
-  MessageForUnauthorizedToken = 'Session Expired. Please login again.'
-
+  MessageForUnauthorizedToken = 'Session Expired. Please login again.',
 }
